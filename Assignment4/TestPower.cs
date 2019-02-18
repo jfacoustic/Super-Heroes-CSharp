@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace PowerLib
 {
-    [TestFixture()]
+    [TestFixture]
     class TestFlyingPower
     {
 
@@ -25,13 +25,18 @@ namespace PowerLib
         [Test]
         public void TestListPower()
         {
-            List<Power> list = new List<Power>();
-            list.Add(new Fly());
-            list.Add(new Punch());
-            list.Add(new Block());
+            List<Power> list = new List<Power>
+            {
+                new Fly(),
+                new Punch(),
+                new Block()
+            };
             list[1].UpgradeStrength(100);
-            Console.WriteLine(list[1].UsePower());
+            Assert.AreEqual(list[1].UsePower(), 101);
             list.Sort();
+            Assert.AreEqual(list[0].UsePower(), 0);
+            Assert.AreEqual(list[1].UsePower(), 1);
+            Assert.AreEqual(list[2].UsePower(), 101);
         }
     }
 }
