@@ -36,7 +36,7 @@ namespace Assignment4
         static void Help()
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("  Here are your commands:");
+            Console.WriteLine("Here are your commands:");
             Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine("  help:view these commands.");
             Console.WriteLine("  add-hero: add hero to your arsenal.");
@@ -51,7 +51,7 @@ namespace Assignment4
 
         static void AddHero()
         {
-            CyanWriteLine("  Enter your Hero's name.");
+            CyanWriteLine("Enter your Hero's name.");
             string heroName = Console.ReadLine();
             if (!HeroInList(heroName))
             {
@@ -82,24 +82,24 @@ namespace Assignment4
 
         static void AddPower()
         {
-            CyanWriteLine("  What is your hero's name?");
+            CyanWriteLine("What is your hero's name?");
             Hero h = GetHero(Console.ReadLine());
-            CyanWriteLine("  Enter your new power's name.");
+            CyanWriteLine("Enter your new power's name.");
             string power = Console.ReadLine();
-            CyanWriteLine("  Will your power be used directly in combat? (Y/N)");
+            CyanWriteLine("Will your power be used directly in combat? (Y/N)");
             if (Console.ReadLine() == "N") h.LearnNeutralPower(power);
             else h.LearnFightingPower(power);
         }
         static void UpgradePower()
         {
-            CyanWriteLine("  What's your hero's name?");
+            CyanWriteLine("What's your hero's name?");
             Hero h = GetHero(Console.ReadLine());
-            CyanWriteLine("  Which power?");
+            CyanWriteLine("Which power?");
             string p = Console.ReadLine();
-            CyanWriteLine("  How much experience?");
+            CyanWriteLine("How much experience?");
             int.TryParse(Console.ReadLine(), out int xp);
             h.UpgradeFightingPower(p, xp);
-            CyanWriteLine("  Power level: " + h.PowerInfo(p));
+            CyanWriteLine("Power level: " + h.PowerInfo(p));
         }
         static void ListHeroes()
         {
@@ -114,11 +114,12 @@ namespace Assignment4
                 Console.Write("  {0, 7} \n", h.Level());
             }
             Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine();
         }
         static void ListPowers()
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("  For which hero?");
+            Console.WriteLine("For which hero?");
             Console.ForegroundColor = ConsoleColor.White;
 
                 Hero h = GetHero(Console.ReadLine());
@@ -149,7 +150,7 @@ namespace Assignment4
             {
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.BackgroundColor = ConsoleColor.White;
-                Console.Write("  HeroSim:");
+                Console.Write("HeroSim:");
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.BackgroundColor = ConsoleColor.Black;
                 Console.Write(" ");
