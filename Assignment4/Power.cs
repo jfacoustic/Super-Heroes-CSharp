@@ -46,6 +46,32 @@ namespace PowerLib
             return Strength;
         }
     }
+    public class Regenerate : Power
+    {
+        public Regenerate()
+        {
+            Strength = 0;
+        }
+        public override int UsePower()
+        {
+            Console.WriteLine("I'm regenerating health!");
+            return Strength;
+        }
+    }
+    public class CustomNeutralPower : Power
+    {
+        private readonly string PowerName;
+        public CustomNeutralPower(string _PowerName)
+        {
+            PowerName = _PowerName;
+            Strength = 0;
+        }
+        public override int UsePower()
+        {
+            Console.WriteLine("Uses " + PowerName);
+            return Strength;
+        }
+    }
     public class Punch : FightingPower
     {
         public override int UsePower()
@@ -74,7 +100,21 @@ namespace PowerLib
     {
         public override int UsePower()
         {
-            Console.WriteLine("Dodges wtih + " + Strength + " strength");
+            Console.WriteLine("Dodges with + " + Strength + " strength");
+            return Strength;
+        }
+    }
+    public class CustomFightingPower : FightingPower
+    {
+        private readonly string PowerName;
+
+        public CustomFightingPower(string _PowerName)
+        {
+            PowerName = _PowerName;
+        }
+        public override int UsePower()
+        {
+            Console.WriteLine("Uses " + PowerName + "!");
             return Strength;
         }
     }

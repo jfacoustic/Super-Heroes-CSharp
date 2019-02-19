@@ -38,5 +38,14 @@ namespace PowerLib
             Assert.AreEqual(list[1].UsePower(), 1);
             Assert.AreEqual(list[2].UsePower(), 101);
         }
+        [Test]
+        public void TestCustomPowers()
+        {
+            Assert.AreEqual(new CustomNeutralPower("Laugh").UsePower(), 0);
+            FightingPower bite = new CustomFightingPower("Bite");
+            Assert.AreEqual(bite.UsePower(), 1);
+            bite.UpgradeStrength(100);
+            Assert.AreEqual(bite.UsePower(), 101);
+        }
     }
 }
