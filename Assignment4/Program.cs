@@ -93,9 +93,11 @@ namespace Assignment4
         }
         static void ListHeroes()
         {
-            foreach(Hero h in Heroes)
+            Console.WriteLine(" {0,-30} {1, -30} {2,7}\n ", "Hero", "Secret Identity", "Level");
+
+            foreach (Hero h in Heroes)
             {
-                Console.WriteLine("Hero: " + h.GetName() + " Secret Identity: " + h.GetSecretIdentity() + " Level: " + h.Level());
+                Console.WriteLine(" {0, -30} {1, -30} {2,7}" , h.GetName(), h.GetSecretIdentity(), h.Level());
             }
         }
         static void ListPowers()
@@ -106,7 +108,7 @@ namespace Assignment4
                 Hero h = GetHero(Console.ReadLine());
                 foreach(string p in h.GetPowers())
                 {
-                    Console.WriteLine(p + ": " + h.PowerInfo(p) + " xp");
+                    Console.WriteLine(p + ": \t" + h.PowerInfo(p) + " xp");
                 }
             }
             catch(Exception e)
@@ -118,6 +120,7 @@ namespace Assignment4
         static void Sort()
         {
             Heroes.Sort();
+            Heroes.Reverse();
             ListHeroes();
         }
         static void Main(string[] args)
